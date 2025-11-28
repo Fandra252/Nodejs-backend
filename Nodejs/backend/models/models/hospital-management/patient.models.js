@@ -2,21 +2,34 @@ const mongoose = require("mongoose");
 
 const patientSchema = new mongoose.Schema(
   {
-    username: {
+    name: {
       type: String,
       required: true,
-      unique: true,
-      lowercase: true,
     },
-    email: {
+    diagonsedWith: {
       type: String,
       required: true,
-      unique: true,
-      lowercase: true,
     },
-    password: {
-      true: String,
+    address: {
+      type: String,
       required: true,
+    },
+    age: {
+      true: Number,
+      required: true,
+    },
+    bloodGroup: {
+      type: String,
+      required: true,
+    },
+    gender: {
+      type: String,
+      enum: ["M", "F", "O"],
+      required: true,
+    },
+    admittedIn: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Hospital",
     },
   },
   { timestamps: true }

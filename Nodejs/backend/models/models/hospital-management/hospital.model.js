@@ -2,22 +2,31 @@ const mongoose = require("mongoose");
 
 const hospitalSchema = new mongoose.Schema(
   {
-    username: {
+    name: {
       type: String,
       required: true,
-      unique: true,
-      lowercase: true,
     },
-    email: {
+    addressLine1: {
       type: String,
       required: true,
-      unique: true,
-      lowercase: true,
     },
-    password: {
+    addressLine2: {
       true: String,
       required: true,
     },
+    city: {
+      type: String,
+      required,
+    },
+    pincode: {
+      type: String,
+      required,
+    },
+    specializedIn: [
+      {
+        type: String,
+      },
+    ],
   },
   { timestamps: true }
 );
