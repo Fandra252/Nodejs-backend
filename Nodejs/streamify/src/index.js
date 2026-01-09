@@ -1,12 +1,34 @@
-import express from "express";
-const app = express();
+// require("dotenv").config({ path: "./env" });
+import dotenv from "dotenv";
+import connectDB from "./db/db.js";
 
-const PORT = 5000;
-
-app.get("/", (req, res) => {
-  res.json("Hello i am Fanendra Choudhary");
+dotenv.config({
+  path: "./env",
 });
 
-app.listen(PORT, () => {
-  console.log("Server is started on Port : http://localhost:5000");
-});
+connectDB();
+
+// import express from "express";
+// const app = express();
+
+// (async () => {
+//   try {
+//     await mongoose.connect(`${process.env.MONGODB_URL}/${DB_NAME}`);
+//     app.on("error", (error) => {
+//       console.log("ERROR", error);
+//       throw error;
+//     });
+//     app.listen(process.env.PORT, () => {
+//       console.log(
+//         `Server is started on Port : http://localhost:${process.env.PORT}`
+//       );
+//     });
+//   } catch (error) {
+//     console.error("ERROR:", error);
+//     throw error;
+//   }
+// })();
+
+// app.get("/", (req, res) => {
+//   res.json("Hello i am Fanendra Choudhary");
+// });
